@@ -1,0 +1,20 @@
+@mixin app-font($sizeValue, $weightValue) {
+  font-size: ($sizeValue / 12) + rem;
+  @if $weightValue == 'light' {
+    font-weight: 300;
+  } @else if $weightValue == 'bold' {
+    font-weight: 600;
+  } @else if $weightValue == 'extra-bold' {
+    font-weight: 800;
+  } @else if $weightValue == 'semi-bold' {
+    font-weight: 700;
+  } @else if $weightValue == 'regular' {
+    font-weight: 400;
+  } @else {
+    font-weight: 400;
+  }
+}
+
+//-------------------------- ANIMATIONS -------------------------//
+
+//-------------------------- END ANIMATIONS -------------------------//

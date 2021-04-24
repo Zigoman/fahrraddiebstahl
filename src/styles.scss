@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'helpers/reset';
+@import 'styles/helpers/fonts';
+@import 'config';
+@import 'primNG-override';
+
+
+html,
+body {
+  font-size: 12px;
+  direction: ltr;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Assistant', sans-serif;
+  color: $def-fonts;
+  position: relative;
+}
+
+* {
+  & {
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+  }
+}
