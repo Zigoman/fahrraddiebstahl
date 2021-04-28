@@ -1,3 +1,53 @@
 html body {
 
+  .p-dataview {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    &.p-dataview-list {
+      .p-grid {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        & > fah-list-item:nth-of-type(even) {
+          background-color: $list-row;
+        }
+
+        fah-list-item {
+          width: 100%;
+          height: 10%;
+          max-height: 10%;
+        }
+      }
+    }
+
+    &.p-dataview-grid {
+      .p-dataview-content {
+        .p-grid {
+          display: flex;
+          flex-direction: row;
+          height: 100%;
+          flex-wrap: wrap;
+
+          fah-list-item {
+            height: 50%;
+            width: 20%;
+          }
+        }
+      }
+    }
+
+    .p-dataview-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+    }
+
+    .p-dataview-content {
+      flex: 1;
+    }
+  }
 }

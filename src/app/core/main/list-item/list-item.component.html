@@ -1,0 +1,14 @@
+<div class="list-item {{itemType ? 'list-item--' + itemType : ''}}" (click)="itemClicked(incident?.id)">
+    <div class="list-item__info">
+      <div class="list-item__info__photo">
+        <div class="list-item__info__photo__url" [fahBikeImage]='incident?.media?.image_url_thumb'></div>
+      </div>
+      <div class="list-item__info__details">
+        <div class="list-item__info__details__name">
+          {{incident?.title}} at {{((incident?.occurred_at || 1) | amFromUnix) | amDateFormat: 'DD/MM/YY HH:mm'}}
+          {{incident?.address ? ' in ' + incident?.address : ''}}
+        </div>
+        <div class="list-item__info__details__description">{{incident?.description}}</div>
+      </div>
+    </div>
+</div>

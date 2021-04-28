@@ -53,5 +53,5 @@ export declare type IFeatures = IFeature[];
 
 export interface IIncidentsGeoObject {
   type: string;
-  features: IFeature[];
+  features: IFeatures;
 }

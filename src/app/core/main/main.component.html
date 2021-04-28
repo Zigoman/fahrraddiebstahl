@@ -1,2 +1,17 @@
 <div class="main">
+  <p-dataView #dv [value]="incidents" [paginator]="true" [rows]="10" filterBy="name" layout="{{layout.layout}}" (onChangeLayout)="layout = $event">
+
+    <ng-template pTemplate="header">
+
+      <div></div>
+      <div></div>
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </ng-template>
+      <ng-template let-incident pTemplate="listItem">
+        <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)" [itemType]="layout.layout"></fah-list-item>
+      </ng-template>
+      <ng-template let-incident pTemplate="gridItem">
+        <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)"  [itemType]="layout.layout"></fah-list-item>
+      </ng-template>
+  </p-dataView>
 </div>
