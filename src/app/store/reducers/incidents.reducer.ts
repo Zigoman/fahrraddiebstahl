@@ -17,6 +17,15 @@ export const reducer = createReducer(
   on(incidentsActions.getIncidentsSuccess, (state, actions) => adapter.setAll(actions.incidents, state))
 );
 
-const { selectAll } = adapter.getSelectors();
+const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
 
 export const selectAllIncidents = selectAll;
+
+// select the array of Tournament ids
+export const selectIncidentID = selectIds;
+
+// select the dictionary of Tournament entities
+export const selectIncidentEntities = selectEntities;
+
+// select the total Tournaments count
+export const selectIncidentTotal = selectTotal;

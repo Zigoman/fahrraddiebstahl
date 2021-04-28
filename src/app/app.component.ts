@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getIncidents } from './store/actions/incidents.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'fah-root',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store<{ incidents: any }>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(getIncidents());
+  }
 }

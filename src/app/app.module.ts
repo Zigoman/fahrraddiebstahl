@@ -15,9 +15,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { IncidentsEffects } from './store/effects/incidents.effects';
+import { ListItemComponent } from './core/main/list-item/list-item.component';
 
 @NgModule({
-  declarations: [AppComponent, InfoComponent, TopBarComponent, MainComponent],
+  declarations: [AppComponent, InfoComponent, TopBarComponent, MainComponent, ListItemComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

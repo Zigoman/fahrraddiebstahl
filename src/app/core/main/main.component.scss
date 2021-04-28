@@ -1,11 +1,14 @@
+@import "config";
+
 :host {
   overflow: hidden;
   height: 100%;
   width: 100%;
 
   .main {
-    overflow: hidden;
     height: 100%;
     width: 100%;
+    box-shadow: $box-shadow;
+    border-radius: 4px;
   }
 }

@@ -1,0 +1,139 @@
+@import "config";
+
+:host {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 5px;
+  display: block;
+
+  .list-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+
+    &--list {
+      .list-item {
+        &__info {
+          height: 100%;
+          width: 100%;
+          display: flex;
+
+          &__photo {
+            height: 100%;
+            width: 60px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            box-shadow: $box-shadow;
+            background-color: $def-background;
+            background-image: url('~src/assets/images/bike-empty.png');
+            position: relative;
+
+            &__url {
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-color: transparent;
+            }
+          }
+
+          &__details {
+            flex: 1;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+
+            &__name {
+              @include app-font(16, semi-bold);
+
+            }
+
+            &__description {
+              flex: 1;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              padding: 8px 0;
+              @include app-font(13, bold);
+              max-width: 90%;
+            }
+          }
+        }
+      }
+    }
+
+    &--grid {
+      padding: 8px;
+
+      .list-item {
+        &__info {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          box-shadow: $box-shadow;
+          border-radius: $border-radius;
+          align-items: center;
+          justify-content: flex-start;
+
+          &__photo {
+            flex: 1;
+            width: 70%;
+            max-height: 70%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            box-shadow: $box-shadow;
+            background-color: $def-background;
+            background-image: url('~src/assets/images/bike-empty.png');
+            position: relative;
+
+            &__url {
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: 100% auto;
+              background-color: transparent;
+            }
+          }
+
+          &__details {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%;
+
+            &__name {
+              @include app-font(16, semi-bold);
+            }
+
+            &__description {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              padding: 8px 0;
+              @include app-font(13, bold);
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
