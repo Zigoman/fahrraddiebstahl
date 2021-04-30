@@ -1,3 +1,5 @@
+import { LngLatLike } from 'mapbox-gl';
+
 export interface Source {
   name: string;
   html_url: string;
@@ -40,7 +42,7 @@ export interface IProperties {
 
 export interface IGeometry {
   type: string;
-  coordinates: number[];
+  coordinates: LngLatLike;
 }
 
 export interface IFeature {

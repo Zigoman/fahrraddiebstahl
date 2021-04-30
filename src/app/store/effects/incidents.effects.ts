@@ -3,12 +3,11 @@ import * as fromIncidentsActions from '../actions/incidents.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs/operators';
 import { ApiService } from '../../shared/services/api-service.service';
-import { Store } from '@ngrx/store';
 import { forkJoin } from 'rxjs';
 
 @Injectable()
 export class IncidentsEffects {
-  constructor(private actions$: Actions, private apiService: ApiService, private store: Store<{ incidents: any }>) {}
+  constructor(private actions$: Actions, private apiService: ApiService) {}
 
   getIncidents$ = createEffect(() =>
     this.actions$.pipe(

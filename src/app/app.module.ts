@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { IncidentsEffects } from './store/effects/incidents.effects';
 import { ListItemComponent } from './core/main/list-item/list-item.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent, InfoComponent, TopBarComponent, MainComponent, ListItemComponent],
@@ -32,6 +33,7 @@ import { ListItemComponent } from './core/main/list-item/list-item.component';
         strictActionImmutability: true
       }
     }),
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([IncidentsEffects])
   ],
