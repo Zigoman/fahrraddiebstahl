@@ -3,7 +3,6 @@
 @import 'config';
 @import 'primNG-override';
 
-
 html,
 body {
   font-size: 12px;
@@ -13,6 +12,11 @@ body {
   font-family: 'Assistant', sans-serif;
   color: $def-fonts;
   position: relative;
+
+  // map style Override
+  .mapboxgl-map {
+    height: 100%;
+  }
 }
 
 * {

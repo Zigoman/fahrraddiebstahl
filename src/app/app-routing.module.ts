@@ -9,8 +9,12 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       { path: 'main', component: MainComponent },
-      { path: 'main/:incidentID', component: InfoComponent }
+      { path: 'main/:id', component: InfoComponent }
     ]
+  },
+  {
+    path: '**',
+    component: MainComponent
   }
 ];
 

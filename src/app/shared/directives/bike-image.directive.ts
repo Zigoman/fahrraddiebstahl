@@ -7,8 +7,8 @@ export class BikeImageDirective {
   @Input()
   set fahBikeImage(url: string | undefined) {
     if (url) {
-      console.log('');
       this.el.nativeElement.style.backgroundImage = `url(${url})`;
+      this.el.nativeElement.style.backgroundColor = '#fff';
     }
   }
 
