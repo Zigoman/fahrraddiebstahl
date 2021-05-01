@@ -4,8 +4,17 @@
   .info {
     height: 100%;
     width: 100%;
-    padding: 20px;
+    padding: 0 20px 20px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-bottom: 20px;
+    }
 
     &__container {
       height: 100%;
@@ -20,24 +29,10 @@
       &__photo {
         flex: 1;
         height: 85%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        box-shadow: $box-shadow;
-        background-color: $def-background;
-        background-image: url('~src/assets/images/bike-empty.png');
-        position: relative;
+        @extend .photo;
 
         &__url {
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 100% auto;
-          background-color: transparent;
+          @extend .photoURL;
         }
       }
 
@@ -58,6 +53,7 @@
           & > div {
             padding: 10px 0;
           }
+
           &__type {
             @include app-font(40, semi-bold);
           }
@@ -101,5 +97,14 @@
         }
       }
     }
+  }
+
+  .info-loading {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

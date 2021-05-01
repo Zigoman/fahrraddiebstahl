@@ -7,7 +7,7 @@ export const selectIncidentsState = createFeatureSelector<fromIncidents.Incident
   fromIncidents.incidentsFeatureKey
 );
 
-const { selectEntities, selectAll, selectTotal } = adapter.getSelectors();
+const { selectEntities, selectAll } = adapter.getSelectors();
 
 export const selectIncidentEntities = createSelector(selectIncidentsState, selectEntities);
 

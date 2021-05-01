@@ -1,4 +1,14 @@
-<div class="info">
+<div class="info" *ngIf="!loading; else loadingTemp">
+  <div class="info__header">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-angle-left"
+      class="p-button-rounded"
+      (click)="goToMain()"
+    ></button>
+  </div>
   <div class="info__container">
     <div class="info__container__photo">
       <div class="info__container__photo__url" [fahBikeImage]="incident?.media?.image_url"></div>
@@ -8,31 +18,22 @@
         <div class="info__container__data__items__type">{{ incident?.type }}</div>
         <div class="info__container__data__items__title">{{ incident?.title }}</div>
         <div class="info__container__data__items__description">{{ incident?.description }}</div>
-        <div class="info__container__data__items__occurred_at" *ngIf="incident?.occurred_at">
-          at: {{ incident?.occurred_at || 1 | amFromUnix | amDateFormat: 'DD/MM/YY HH:mm' }}
-        </div>
-        <div class="info__container__data__items__updated_at" *ngIf="incident?.updated_at">
-          Update at: {{ incident?.updated_at || 1 | amFromUnix | amDateFormat: 'DD/MM/YY HH:mm' }}
+        <div class="info__container__data__items__occurred_at" *ngIf="incident?.date">At: {{ incident?.date }}</div>
+        <div class="info__container__data__items__updated_at" *ngIf="incident?.dateOfReport">
+          Report at: {{ incident?.dateOfReport }}
         </div>
         <div class="info__container__data__items__address" *ngIf="incident?.address">
-          location: {{ incident?.address }}
+          Location: {{ incident?.address }}
         </div>
-        <!--        <div class="info__container__data">{{incident?.}}</div>-->
       </div>
       <div class="info__container__data__map">
         <div class="info__container__data__map__container" id="map"></div>
       </div>
     </div>
   </div>
-  <!--    <div class="info__info__photo">-->
-  <!--      -->
-  <!--    </div>-->
-  <!--    <div class="info__info__details">-->
-  <!--      <div class="info__info__details__name">-->
-  <!--        {{incident?.title}} at {{((incident?.occurred_at || 1) | amFromUnix) | amDateFormat: 'DD/MM/YY HH:mm'}}-->
-  <!--        {{incident?.address ? ' in ' + incident?.address : ''}}-->
-  <!--      </div>-->
-  <!--      <div class="info__info__details__description">{{incident?.description}}</div>-->
-  <!--    </div>-->
-  <!--  </div>-->
 </div>
+<ng-template #loadingTemp>
+  <div class="info-loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+</ng-template>

@@ -12,10 +12,10 @@ export class MapBoxService {
 
   constructor() {}
 
-  public initMap(name: string, location: IGeometry | null): void {
+  public initMap(element: string, location: IGeometry | null): void {
     const map = new mapboxgl.Map({
       accessToken: environment.mapbox.accessToken,
-      container: name,
+      container: element,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: location?.coordinates,
       zoom: 15

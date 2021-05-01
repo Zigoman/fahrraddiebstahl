@@ -1,4 +1,4 @@
-@import "config";
+@import 'config';
 
 :host {
   width: 100%;
@@ -54,7 +54,6 @@
 
             &__name {
               @include app-font(16, semi-bold);
-
             }
 
             &__description {
@@ -90,24 +89,10 @@
             flex: 1;
             width: 70%;
             max-height: 70%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            box-shadow: $box-shadow;
-            background-color: $def-background;
-            background-image: url('~src/assets/images/bike-empty.png');
-            position: relative;
+            @extend .photo;
 
             &__url {
-              position: absolute;
-              top: 0;
-              right: 0;
-              left: 0;
-              bottom: 0;
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: 100% auto;
-              background-color: transparent;
+              @extend .photoURL;
             }
           }
 
@@ -133,7 +118,19 @@
         }
       }
     }
+  }
 
-
+  .skeleton-item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &__info {
+      padding: 0 10px;
+      height: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
   }
 }
