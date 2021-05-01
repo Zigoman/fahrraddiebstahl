@@ -4,6 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs/operators';
 import { ApiService } from '../../shared/services/api-service.service';
 import { forkJoin } from 'rxjs';
+import * as moment from 'moment';
 
 @Injectable()
 export class IncidentsEffects {
@@ -22,6 +23,10 @@ export class IncidentsEffects {
               incidents: incidents.info.map(incident => {
                 const incidentGeo = incidents.geo.find(geo => geo.properties.id === incident.id);
                 incident.geo = incidentGeo?.geometry ? incidentGeo.geometry : null;
+                incident.date = incident?.occurred_at ? moment.unix(incident.occurred_at).format('DD/MM/YY HH:mm') : '';
+                incident.dateOfReport = incident?.updated_at
+                  ? moment.unix(incident.updated_at).format('DD/MM/YY HH:mm')
+                  : '';
                 return incident;
               })
             });

@@ -1,4 +1,4 @@
-@import "config";
+@import 'config';
 
 :host {
   overflow: hidden;
@@ -10,5 +10,28 @@
     width: 100%;
     box-shadow: $box-shadow;
     border-radius: 4px;
+
+    &__header {
+      &__filters {
+        display: flex;
+        align-items: center;
+
+        label {
+          padding: 0 10px;
+        }
+
+        &__total {
+          padding: 0 10px;
+          display: flex;
+          @include app-font(16, semi-bold);
+
+          &__title {
+          }
+          &__value {
+            padding: 0 10px;
+          }
+        }
+      }
+    }
   }
 }

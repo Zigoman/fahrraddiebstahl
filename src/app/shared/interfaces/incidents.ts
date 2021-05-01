@@ -18,6 +18,8 @@ export interface IIncident {
   address: string;
   occurred_at: number;
   updated_at: number;
+  date?: string;
+  dateOfReport?: string;
   url: string;
   source: Source;
   media: Media;

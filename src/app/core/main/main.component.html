@@ -1,17 +1,49 @@
 <div class="main">
-  <p-dataView #dv [value]="incidents" [paginator]="true" [rows]="10" filterBy="name" layout="{{layout.layout}}" (onChangeLayout)="layout = $event">
-
+  <p-dataView
+    [value]="filteredIncidents"
+    [paginator]="true"
+    [rows]="numberOfRows"
+    layout="{{ layout.layout }}"
+    (onPage)="getMoreIncidents($event)"
+    (onChangeLayout)="layout = $event"
+  >
     <ng-template pTemplate="header">
+      <div class="main__header__filters">
+        <label for="filter-title">Filter by title:</label>
+        <input
+          #filterTitleEl
+          id="filter-title"
+          type="search"
+          class="p-inputtext-sm"
+          pInputText
+          placeholder="Enter text"
+          (input)="filterData(filterTitleEl.value, filterDateEl.value)"
+        />
+        <label for="filter-date">Filter by Date:</label>
+        <input
+          #filterDateEl
+          id="filter-date"
+          type="search"
+          class="p-inputtext-sm"
+          pInputText
+          placeholder="Enter date"
+          (input)="filterData(filterTitleEl.value, filterDateEl.value)"
+        />
 
-      <div></div>
-      <div></div>
+        <div class="main__header__filters__total" *ngIf="filteredIncidents.length > 0">
+          <div class="main__header__filters__total__title">Total Cases:</div>
+          <div class="main__header__filters__total__value">{{ filteredIncidents.length }}</div>
+        </div>
+      </div>
       <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
     </ng-template>
-      <ng-template let-incident pTemplate="listItem">
-        <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)" [itemType]="layout.layout"></fah-list-item>
-      </ng-template>
-      <ng-template let-incident pTemplate="gridItem">
-        <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)"  [itemType]="layout.layout"></fah-list-item>
-      </ng-template>
+    <ng-template let-incident pTemplate="listItem">
+      <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)" [itemType]="layout.layout">
+      </fah-list-item>
+    </ng-template>
+    <ng-template let-incident pTemplate="gridItem">
+      <fah-list-item [incident]="incident" (itemSelected)="goToIncident($event)" [itemType]="layout.layout">
+      </fah-list-item>
+    </ng-template>
   </p-dataView>
 </div>

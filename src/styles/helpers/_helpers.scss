@@ -1,3 +1,25 @@
+.photo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: $box-shadow;
+  background-color: $def-background;
+  background-image: url('~src/assets/images/bike-empty.png');
+  position: relative;
+}
+
+.photoURL {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-color: transparent;
+}
+
 @mixin app-font($sizeValue, $weightValue) {
   font-size: ($sizeValue / 12) + rem;
   @if $weightValue == 'light' {

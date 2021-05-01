@@ -14,25 +14,32 @@ import { Router } from '@angular/router';
 export class InfoComponent implements OnInit, OnDestroy {
   public incident: IIncident | null;
   private routeSub: Subscription | null;
+  public loading: boolean;
 
   constructor(
-    private mapBoxSrv: MapBoxService,
+    public mapBoxSrv: MapBoxService,
     private store: Store<{ incidents: IIncidents }>,
     private router: Router
   ) {
+    this.loading = true;
     this.incident = null;
     this.routeSub = null;
   }
 
   ngOnInit(): void {
     this.routeSub = this.store.pipe(select(selectIncident)).subscribe(incident => {
+      this.loading = false;
       if (incident) {
         this.incident = incident;
-        this.mapBoxSrv.initMap('map', this.incident?.geo || null);
-      } else {
-        this.router.navigate(['/main']).then();
+        setTimeout(() => {
+          this.mapBoxSrv.initMap('map', this.incident?.geo || null);
+        }, 0);
       }
     });
+  }
+
+  public goToMain(): void {
+    this.router.navigateByUrl('main').then();
   }
 
   ngOnDestroy(): void {

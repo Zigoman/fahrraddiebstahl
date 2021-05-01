@@ -9,12 +9,12 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       { path: 'main', component: MainComponent },
-      { path: 'main/:id', component: InfoComponent }
+      { path: 'main/:id', component: InfoComponent },
+      {
+        path: '**',
+        redirectTo: 'main'
+      }
     ]
-  },
-  {
-    path: '**',
-    component: MainComponent
   }
 ];
 
