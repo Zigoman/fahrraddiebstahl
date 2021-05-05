@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { IIncident, IIncidents } from '../../shared/interfaces/incidents';
@@ -16,6 +16,12 @@ export class InfoComponent implements OnInit, OnDestroy {
   private routeSub: Subscription | null;
   public loading: boolean;
 
+  @ViewChild('map', { static: false })
+  set map(map: ElementRef) {
+    setTimeout(() => {
+      this.mapBoxSrv.initMap(map.nativeElement, this.incident?.geo || null);
+    }, 0);
+  }
   constructor(
     public mapBoxSrv: MapBoxService,
     private store: Store<{ incidents: IIncidents }>,
@@ -31,9 +37,7 @@ export class InfoComponent implements OnInit, OnDestroy {
       this.loading = false;
       if (incident) {
         this.incident = incident;
-        setTimeout(() => {
-          this.mapBoxSrv.initMap('map', this.incident?.geo || null);
-        }, 0);
+        setTimeout(() => {}, 0);
       }
     });
   }

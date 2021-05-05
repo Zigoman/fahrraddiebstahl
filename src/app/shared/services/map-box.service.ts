@@ -12,7 +12,7 @@ export class MapBoxService {
 
   constructor() {}
 
-  public initMap(element: string, location: IGeometry | null): void {
+  public initMap(element: HTMLElement, location: IGeometry | null): void {
     const map = new mapboxgl.Map({
       accessToken: environment.mapbox.accessToken,
       container: element,

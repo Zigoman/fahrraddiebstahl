@@ -23,7 +23,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<{ incidents: IIncidents }>,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute,
     private apiService: ApiService
   ) {
@@ -52,8 +52,8 @@ export class MainComponent implements OnInit, OnDestroy {
     this.filteredIncidents = this.filteredIncidents.filter(incident => incident.date?.includes(date));
   }
 
-  public goToIncident(ID: number): void {
-    this.router.navigate([ID], { relativeTo: this.route }).then();
+  public goToIncident(ID: number): Promise<boolean> {
+    return this.router.navigate(['/main', ID]);
   }
 
   public getMoreIncidents(e: { first: number; rows: number }): void {
