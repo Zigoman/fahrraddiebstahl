@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './core/main/main.component';
 import { InfoComponent } from './core/info/info.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     children: [

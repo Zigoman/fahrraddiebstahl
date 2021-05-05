@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class BikeImageDirective {
   @Input()
-  set fahBikeImage(url: string | undefined) {
+  set fahBikeImage(url: string | null | undefined) {
     if (url) {
       this.el.nativeElement.style.backgroundImage = `url(${url})`;
       this.el.nativeElement.style.backgroundColor = '#fff';

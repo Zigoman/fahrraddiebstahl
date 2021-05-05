@@ -7,27 +7,27 @@ export interface Source {
 }
 
 export interface Media {
-  image_url: string;
-  image_url_thumb: string;
+  image_url: string | null;
+  image_url_thumb: string | null;
 }
 
 export interface IIncident {
   id: number;
   title: string;
-  description: string;
+  description: string | null;
   address: string;
   occurred_at: number;
   updated_at: number;
-  date?: string;
-  dateOfReport?: string;
+  date: string | null | undefined;
+  dateOfReport: string | undefined;
   url: string;
   source: Source;
   media: Media;
-  location_type?: string;
-  location_description?: string;
+  location_type: string | null | undefined;
+  location_description: string | null | undefined;
   type: string;
-  type_properties?: string;
-  geo?: IGeometry | null;
+  type_properties: string | null | undefined;
+  geo: IGeometry | null;
 }
 
 export declare type IIncidents = IIncident[];
